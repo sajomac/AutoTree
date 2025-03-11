@@ -9,13 +9,17 @@ All of this can be done with a single command. See the Tree_Example.ipynb for pe
 ### Data Preprocessing
 - Handles missing values
 - Corrects skewness in data
-- Removes collinear columns
+- Handles highly collinear columns
 - Encodes categorical variables
+- The user can remove columns that contain unwanted information
 
 ### Model Training
 - Supports both regression and classification tasks
+- Estimates a reasonable set of hyperparameters based on the dataset provided
+- Performs a grid search to determine optimal hyperparameters
 - Uses Lasso in the event of overfitting
-- Iteratively reduces model complexity and PCA retained variance if overfitting persists
+- Additionally: iteratively reduces model complexity and PCA retained variance if overfitting persists
+- Performs k-fold cross validation on final model
 
 ### Feature Importance
 - Provides permutation-based feature importance analysis
@@ -26,13 +30,13 @@ All of this can be done with a single command. See the Tree_Example.ipynb for pe
   - Confusion matrices and ROC curves (for classification)
   - PCA clustering plots (when dimensionality reduction is applied)
 
-### Dimensionality Reduction
-- Automatically applies PCA and Lasso-based feature selection in case of overfitting
+### Saving
+- Saves the model in a desginated folder for future use.
 
 ## Installation
 
 ### Requirements
-- Python 3.12 or higher
+- Python 3.11 or higher
 - pip (Python package manager)
 
 ### Installation Steps
