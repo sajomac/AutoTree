@@ -38,8 +38,8 @@ All of this can be done with a single command. See the Tree_Example.ipynb for pe
 ### Installation Steps
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-username/auto-tree.git
-   cd auto-tree
+   git clone https://github.com/your-username/AutoTree.git
+   cd AutoTree
    ```
 2. Install dependencies:
    ```sh
@@ -79,7 +79,7 @@ chmod +x run_pipeline.sh
 ```
 
 ## Example Datasets
-Example datasets are available in `./src/example_main.py`.
+Example datasets are available in `./src/example_main.py`. Or in the `/data` folder. 
 
 ## Output
 
