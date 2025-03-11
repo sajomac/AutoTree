@@ -34,7 +34,9 @@ if __name__ == "__main__":
 
     print("Examining Titanic Dataset: ")
     data = titanic = sns.load_dataset('titanic')
-
+    data.to_csv("../data/titanic.csv")
+    # or: 
+    data= pd.read_csv("../data/titanic.csv")
     print(data.columns)
     # Run the model pipeline
     overfit_metric, model = random_forest(
@@ -42,7 +44,7 @@ if __name__ == "__main__":
         tar="survived",
         tar_skew=False,
         pred_skew=False,
-        columns_to_remove=["alive"],
+        columns_to_remove=["alive", "Unnamed: 0"],
         identify_predictors=True,
         graphs=True,
         dim_reduce=False,
@@ -53,21 +55,23 @@ if __name__ == "__main__":
 
     from sklearn.datasets import load_iris
 
-
-    # Load Boston Housing dataset
     iris = load_iris()
     data = pd.DataFrame(iris.data, columns=iris.feature_names)
     data['species'] = iris.target
+    data.to_csv("../data/iris.csv")
     print(data.columns)
     print(data.shape)
+    # or: 
+    data=pd.read_csv("../data/iris.csv")
+    
 
     # Run the model pipeline
     overfit_metric, model = random_forest(
         data,
-        tar="species",
+        tar="species", 
         tar_skew=False,
         pred_skew=False,
-        columns_to_remove=[],
+        columns_to_remove=["Unnamed: 0"],
         identify_predictors=True,
         graphs=True,
         dim_reduce=False,
@@ -81,6 +85,10 @@ if __name__ == "__main__":
     diabetes = load_diabetes()
     data = pd.DataFrame(diabetes.data, columns=diabetes.feature_names)
     data['target'] = diabetes.target
+    data.to_csv("../data/diabetes.csv")
+    
+    # or: 
+    data = pd.read_csv("../data/diabetes.csv")
 
     # Run the model pipeline
     overfit_metric, model = random_forest(
@@ -88,7 +96,7 @@ if __name__ == "__main__":
         tar="target",
         tar_skew=True,
         pred_skew=True,
-        columns_to_remove=[],
+        columns_to_remove=["Unnamed: 0"],
         identify_predictors=True,
         graphs=True,
         dim_reduce=True,
