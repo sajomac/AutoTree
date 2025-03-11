@@ -11,33 +11,33 @@ from visualization import *
 
 if __name__ == "__main__":
     # Load data
-    data_path = '/home/gisam1/non_imaging_data/max_data_slice.csv'
-    data = pd.read_csv(data_path)
+    # data_path = '/home/gisam1/non_imaging_data/max_data_slice.csv'
+    # data = pd.read_csv(data_path)
     
-    # Filter data for the "MDD" group
-    data = data[data["Group"] == "MDD"]
-    data.to_csv('/home/gisam1/non_imaging_data/max_data_slice_mdd.csv', index = False)
+    # # Filter data for the "MDD" group
+    # data = data[data["Group"] == "MDD"]
+    # data.to_csv('/home/gisam1/non_imaging_data/max_data_slice_mdd.csv', index = False)
 
-    columns_to_remove = []
+    # columns_to_remove = []
     
-    # # Run the model pipeline
-    mae_per_diff, overall_r2, test_r2 = random_forest(
-        data,
-        tar="DurDep",
-        tar_skew=True,
-        pred_skew=True,
-        columns_to_remove=columns_to_remove,
-        identify_predictors=True,
-        graphs=True,
-        dim_reduce=True
-    )
+    # # # Run the model pipeline
+    # overfit_metric, model = random_forest(
+    #     data,
+    #     tar="DurDep",
+    #     tar_skew=True,
+    #     pred_skew=True,
+    #     columns_to_remove=columns_to_remove,
+    #     identify_predictors=True,
+    #     graphs=True,
+    #     dim_reduce=True
+    # )
 
     print("Examining Titanic Dataset: ")
     data = titanic = sns.load_dataset('titanic')
 
     print(data.columns)
     # Run the model pipeline
-    mae_per_diff, overall_r2, test_r2 = random_forest(
+    overfit_metric, model = random_forest(
         data,
         tar="survived",
         tar_skew=False,
@@ -49,9 +49,7 @@ if __name__ == "__main__":
         categorical = True
     )
 
-    print(f"MAE: {mae_per_diff}")
-    print(f"Overall R2: {overall_r2}")
-    print(f"Test R2: {test_r2}")
+
 
     from sklearn.datasets import load_iris
 
@@ -64,7 +62,7 @@ if __name__ == "__main__":
     print(data.shape)
 
     # Run the model pipeline
-    mae_per_diff, overall_r2, test_r2 = random_forest(
+    overfit_metric, model = random_forest(
         data,
         tar="species",
         tar_skew=False,
@@ -85,7 +83,7 @@ if __name__ == "__main__":
     data['target'] = diabetes.target
 
     # Run the model pipeline
-    mae_per_diff, overall_r2, test_r2 = random_forest(
+    overfit_metric, model = random_forest(
         data,
         tar="target",
         tar_skew=True,
@@ -97,6 +95,3 @@ if __name__ == "__main__":
         categorical = False
     )
 
-    print(f"MAE: {mae_per_diff}")
-    print(f"Overall R2: {overall_r2}")
-    print(f"Test R2: {test_r2}")
