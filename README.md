@@ -2,6 +2,8 @@
 
 AutoTree is a Python-based machine learning pipeline that automates the training and evaluation of regression and classification models using HistGradientBoostingRegressor and HistGradientBoostingClassifier from scikit-learn. It automatically determines reasonable hyperparameter options based on the provided dataset and performs a grid search to identify the optimal set of hyperparameters. The pipeline streamlines data preprocessing, feature engineering, model training, evaluation, visualization, and model saving.
 
+All of this can be done with a single command. See the Tree_Example.ipynb for performance accross iris, diabetes, titanic, digits, california_housing, wine and breast_cancer datasets.
+
 ## Features
 
 ### Data Preprocessing
