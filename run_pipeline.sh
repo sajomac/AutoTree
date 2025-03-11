@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # Define dataset and parameters
-DATA_PATH="/home/gisam1/non_imaging_data/max_data_slice_mdd.csv"
-TARGET="DurDep"
+DATA_PATH="./data/diabetes.csv"
+TARGET="target"
 CATEGORICAL=false
 TAR_SKEW=true
 PRED_SKEW=true
-COLUMNS_TO_REMOVE="BDI_Sum,Alter"
+COLUMNS_TO_REMOVE="Unnamed: 0"
 IDENTIFY_PREDICTORS=true
 GRAPHS=true
 DIM_REDUCE=true
